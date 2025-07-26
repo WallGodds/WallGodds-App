@@ -15,7 +15,7 @@ object AppSize {
 
     // CornerRadii
     val LowCornerRadius = 8.dp // e.g. Category previews
-    val HighCornerRadius = 24.dp // e.g. Category previews
+    val HighCornerRadius = 24.dp // e.g. Slider, Nav bar
     val WallpaperRoundedCorner = 20.dp // e.g. Wallpaper
 
     // FontSizes

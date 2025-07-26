@@ -1,0 +1,52 @@
+# Gradle files
+Application/.gradle/
+Application/build/
+
+# Local configuration files
+Application/local.properties
+
+# Android Studio and IntelliJ IDEA files
+Application/.idea/
+*.iml
+*.iws
+*.ipr
+
+# Android Studio cache
+Application/.idea/caches/
+Application/.idea/libraries/
+Application/.idea/modules.xml
+Application/.idea/workspace.xml
+Application/.idea/gradle.xml
+Application/.idea/usage.statistics.xml
+Application/.idea/dictionaries/
+Application/.idea/httpRequests/
+
+# Keystore files
+*.jks
+*.keystore
+
+# Log files
+*.log
+
+# OS-specific files
+Application/.DS_Store
+Application/Thumbs.db
+
+# Build directories
+Application/app/build/
+Application/*/build/
+
+# Proguard configuration files
+Application/proguard-rules.pro
+
+# Miscellaneous
+*.apk
+*.ap_
+*.dex
+*.class
+
+# Api key
+Application/app/google-services.json
+
+# Secrets
+Application/secrets.properties
