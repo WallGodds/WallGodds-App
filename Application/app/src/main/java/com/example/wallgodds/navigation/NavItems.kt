@@ -1,5 +1,6 @@
 package com.example.wallgodds.navigation
 
+import androidx.compose.ui.graphics.painter.Painter
 import com.example.wallgodds.R
 
 data class NavItems (
@@ -21,7 +22,7 @@ val listOfNavItems: List<NavItems> = listOf(
     ),
     NavItems(
         label = "Upload",
-        icon = R.drawable.upload_icon,
+        icon = R.drawable.favorites_icon,
         route = Routes.upload_page
     )
 )

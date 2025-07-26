@@ -97,7 +97,7 @@ class MainActivity : ComponentActivity() {
                             HomePage()
                         }
                         composable(Routes.upload_page) {
-                            UploadScreen()
+                            UploadScreen(navController)
                         }
                     }
                 }
