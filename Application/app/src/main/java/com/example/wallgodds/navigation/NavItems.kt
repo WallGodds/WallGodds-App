@@ -1,5 +1,6 @@
 package com.example.wallgodds.navigation
 
+import androidx.compose.ui.graphics.painter.Painter
 import com.example.wallgodds.R
 
 data class NavItems (
