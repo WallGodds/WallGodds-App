@@ -42,7 +42,7 @@ import com.example.wallgodds.navigation.Routes
 import com.example.wallgodds.ui.theme.AppPadding
 import com.example.wallgodds.ui.theme.AppSize
 
-
+// Upload Page
 @Composable
 fun UploadScreen(navController: NavController) {
 	val availableWallpapers = listOf(
@@ -56,6 +56,7 @@ fun UploadScreen(navController: NavController) {
 		mutableStateOf(List(30) { index -> availableWallpapers[index % availableWallpapers.size] })
 	}
 
+	// Whole Screen is wrapped in a box for better alignment and component stacking
 	Box(modifier = Modifier.fillMaxSize()) {
 
 		Image(
@@ -65,13 +66,15 @@ fun UploadScreen(navController: NavController) {
 			modifier = Modifier.fillMaxSize()
 		)
 
-
+		// The screen is divided into 3 sections - all three have been wrapped in LazyColumn to make them
+		// scrollable
 		LazyColumn(
 			modifier = Modifier.fillMaxSize(),
 			contentPadding = PaddingValues(AppPadding.MainContentPadding),
 			verticalArrangement = Arrangement.spacedBy(AppPadding.PaddingBetweenCategories)
 		) {
 
+			// section 1- Top App Bar
 			item {
 				Row(
 					modifier = Modifier
@@ -93,6 +96,7 @@ fun UploadScreen(navController: NavController) {
 				}
 			}
 
+			// section 2- Clickable Upload button to let users add their own wallpapers
 			item {
 				Box(
 					modifier = Modifier
@@ -130,8 +134,10 @@ fun UploadScreen(navController: NavController) {
 				}
 			}
 
+			// Spacer -  for clean UI look
 			item { Spacer(modifier = Modifier.height(AppPadding.PaddingBetweenCategories)) }
 
+			// section 3 - Vertical grid layout of wallpapers with scrollable behaviour
 			item {
 				Box(
 					modifier = Modifier
