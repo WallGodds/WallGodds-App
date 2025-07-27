@@ -45,6 +45,7 @@ import androidx.navigation.navArgument
 import com.example.wallgodds.navigation.CustomNavigationBar
 import com.example.wallgodds.navigation.Routes
 import com.example.wallgodds.navigation.listOfNavItems
+import com.example.wallgodds.screens.UploadScreen
 import com.example.wallgodds.ui.theme.AppPadding
 import com.example.wallgodds.ui.theme.AppSize
 import com.example.wallgodds.ui.theme.WallGoddsTheme
@@ -96,7 +97,7 @@ class MainActivity : ComponentActivity() {
                             HomePage()
                         }
                         composable(Routes.upload_page) {
-                            HomePage()
+                            UploadScreen(navController)
                         }
                     }
                 }
