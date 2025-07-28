@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WallGodds.iml" filepath="$PROJECT_DIR$/.idea/modules/WallGodds.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/WallGodds-App.iml" filepath="$PROJECT_DIR$/.idea/WallGodds-App.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WallGodds.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WallGodds.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WallGodds.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WallGodds.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WallGodds.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WallGodds.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WallGodds.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WallGodds.app.unitTest.iml" />
     </modules>
   </component>
 </project>

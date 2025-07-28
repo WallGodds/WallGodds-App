@@ -13,10 +13,11 @@
         android:theme="@style/Theme.WallGodds"
         tools:targetApi="31">
         <activity
-            android:name=".screens.PopUpPage"
+            android:name=".test"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.WallGodds">
+            android:theme="@style/Theme.WallGodds"
+            tools:ignore="MissingClass">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
