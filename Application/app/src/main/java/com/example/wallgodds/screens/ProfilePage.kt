@@ -1,7 +1,6 @@
 package com.example.wallgodds.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,7 +22,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -33,11 +31,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.wallgodds.R
 import com.example.wallgodds.ui.theme.AppPadding
-import com.example.wallgodds.ui.theme.Lavender
-import com.example.wallgodds.ui.theme.SoftBlush
-import com.example.wallgodds.ui.theme.SoftLight
-import com.example.wallgodds.ui.theme.SoftPink
-import com.example.wallgodds.ui.theme.SoftYellow
 
 @Composable
 fun ProfilePageScreen(
@@ -50,18 +43,15 @@ fun ProfilePageScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(
-                Brush.linearGradient(
-                    colors = listOf(
-                        SoftLight,
-                        SoftPink,
-                        Lavender,
-                        SoftYellow,
-                        SoftBlush
-                    )
-                )
-            ),
     ) {
+        // *** Use this as the background for your page ***
+        Image(
+            painter = painterResource(id = R.drawable.background),
+            contentDescription = "Background Image",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.matchParentSize()
+        )
+
         // Back Button
         IconButton(
             onClick = onBackPressed,
