@@ -11,9 +11,11 @@ class test : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             WallGoddsTheme {
+                // Show your profile page screen
                 PopUpPage(
                     onProfileClick = {},
-                    onClose = {}
+                    onClose = { finish()}, // Or any logic
+
                 )
             }
         }

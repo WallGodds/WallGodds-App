@@ -35,8 +35,8 @@ import androidx.compose.ui.platform.LocalContext
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PopUpPage(
-        onProfileClick: () -> Unit = {},
-        onClose:() -> Unit = {}
+    onProfileClick: () -> Unit = {},
+    onClose:() -> Unit = {}
 ) {
     var selectedImageUri by remember { mutableStateOf<Uri?>(null) }
     var wallpaperName by remember { mutableStateOf("") }
@@ -254,7 +254,7 @@ fun PopUpPage(
                                 ) {
                                     listOf("Abstract", "Nature", "Anime", "Art", "Movies", "Vehicles", "Sports", "Games", "Travel", "Spiritual", "Music", "AIGen").forEach { option ->
                                         DropdownMenuItem(
-                                            text = { Text(text = option, fontFamily = FontFamily.Cursive , fontSize = 20.sp) },
+                                            text = { Text(text = option, fontFamily = FontFamily.Cursive , fontSize = 18.sp) },
                                             onClick = {
                                                 selectedCategory = option
                                                 expanded = false
@@ -269,6 +269,7 @@ fun PopUpPage(
 
                     Spacer(modifier = Modifier.Companion.height(18.dp))
 
+                    // submit button
                     Box(
                         modifier = Modifier
                             .fillMaxWidth(),
