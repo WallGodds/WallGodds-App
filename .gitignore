@@ -2,14 +2,24 @@
 Application/.gradle/
 Application/build/
 
+# Root-level Gradle files
+.gradle/
+build/
+
 # Local configuration files
 Application/local.properties
+
+# Root-level local.properties
+local.properties
 
 # Android Studio and IntelliJ IDEA files
 Application/.idea/
 *.iml
 *.iws
 *.ipr
+
+# IntelliJ additional cache files
+Application/.idea/assetWizardSettings.xml
 
 # Android Studio cache
 Application/.idea/caches/
@@ -20,6 +30,30 @@ Application/.idea/gradle.xml
 Application/.idea/usage.statistics.xml
 Application/.idea/dictionaries/
 Application/.idea/httpRequests/
+
+# System files globally
+.DS_Store
+Thumbs.db
+
+# Android crash logs
+*.stacktrace
+
+# Android Lint and Reports
+lint/intermediates/
+lint/generated/
+lint/outputs/
+
+# Fastlane and temporary files
+fastlane/report.xml
+fastlane/Preview.html
+*.tmp
+*.temp
+
+# Signing files backup
+*.keystore.properties
+
+# Firebase Crashlytics
+crashlytics-build.properties
 
 # Keystore files
 *.jks
