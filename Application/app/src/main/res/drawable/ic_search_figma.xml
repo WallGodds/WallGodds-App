@@ -1,0 +1,29 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32.0"
+    android:viewportHeight="32.0">
+    <!-- Part 1: Lens
+         Center: 12.6, 12.6
+         Stroke width: 4
+         Radius (path): 10.6 (Outer 12.6)
+         Size: 25.2 x 25.2 (Bounding Box)
+    -->
+    <path
+        android:strokeColor="#929292"
+        android:strokeWidth="4"
+        android:pathData="M12.6,12.6 m-10.6,0 a10.6,10.6 0 1,1 21.2,0 a10.6,10.6 0 1,1 -21.2,0"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    
+    <!-- Part 2: Handle
+         Start: 21.51, 21.51 (Intersection of outer radius 12.6 at 45 deg)
+         Size: 4.0 x 4.0 (Bounding Box) -> dx=4.0, dy=4.0
+         End: 25.51, 25.51
+    -->
+    <path
+        android:strokeColor="#929292"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:pathData="M21.51,21.51 L25.51,25.51" />
+</vector>
