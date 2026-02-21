@@ -87,7 +87,7 @@ fun UploadPage(navController: NavController) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(horizontal = AppPadding.MainContentPadding)
-                .padding(bottom = 90.dp),
+                .padding(top = 12.dp, bottom = 90.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
@@ -121,7 +121,7 @@ fun UploadPage(navController: NavController) {
                 .padding(horizontal = AppPadding.MainContentPadding),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
             verticalItemSpacing = 12.dp,
-            contentPadding = PaddingValues(top = 0.dp, bottom = 0.dp)
+            contentPadding = PaddingValues(top = 12.dp, bottom = 24.dp)
         ) {
 
             item {
