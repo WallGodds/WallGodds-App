@@ -38,3 +38,9 @@ val BannerTextColor = Color(0xFFDBDFFF)
 
 // Navbar
 val NavbarPurple = Color(0xFF8F79FF)
+
+// Forget Password Page
+val MediumSlateBlue = Color(0xFF7A5EE5)
+val VioletBlue = Color(0xFF7395FF)
+val BlueViolet = Color(0xFF5F71FE)
+val PurpleBlue = Color(0xFF7056F5)

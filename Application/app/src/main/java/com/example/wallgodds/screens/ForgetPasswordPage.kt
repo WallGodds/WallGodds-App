@@ -35,6 +35,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.wallgodds.R
+import com.example.wallgodds.ui.theme.BlueViolet
+import com.example.wallgodds.ui.theme.MediumSlateBlue
+import com.example.wallgodds.ui.theme.PurpleBlue
+import com.example.wallgodds.ui.theme.VioletBlue
 import com.example.wallgodds.ui.theme.poppinsFontFamily
 
 @Composable
@@ -65,7 +69,7 @@ fun ForgetPassword() {
                 Text(
                     text = "Forget Password",
                     color = Color.White,
-                    fontSize = 64.sp,
+                    fontSize = 40.sp,
                     fontWeight = FontWeight.Bold,
                     fontFamily = poppinsFontFamily,
                     textAlign = TextAlign.Center,
@@ -78,8 +82,8 @@ fun ForgetPassword() {
                     text = "Forgot your password? No worries reset\n" +
                             "it and get back to WallGodds",
                     color = Color.White.copy(alpha = 0.9f),
-                    fontSize = 24.sp,
-                    lineHeight = 22.sp,
+                    fontSize = 16.sp,
+                    lineHeight = 20.sp,
                     fontWeight = FontWeight.Normal,
                     fontFamily = poppinsFontFamily,
                     textAlign = TextAlign.Center,
@@ -103,13 +107,13 @@ fun ForgetPassword() {
                     placeholder = {
                         Text(
                             text = "Email *",
-                            color = Color(android.graphics.Color.parseColor("#7056F5")),
+                            color = PurpleBlue,
                             fontFamily = poppinsFontFamily
                         )
                     },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(64.dp)
+                        .height(52.dp)
                         .clip(RoundedCornerShape(16.dp)),
                     shape = RoundedCornerShape(16.dp),
                     colors = TextFieldDefaults.colors(
@@ -118,8 +122,8 @@ fun ForgetPassword() {
                         disabledContainerColor = Color.White.copy(alpha = 0.4f),
                         focusedIndicatorColor = Color.Transparent,
                         unfocusedIndicatorColor = Color.Transparent,
-                        focusedTextColor = Color(android.graphics.Color.parseColor("#7A5EE5")),
-                        unfocusedTextColor = Color(android.graphics.Color.parseColor("#7A5EE5"))
+                        focusedTextColor = MediumSlateBlue,
+                        unfocusedTextColor = MediumSlateBlue
                     ),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                     singleLine = true
@@ -131,29 +135,29 @@ fun ForgetPassword() {
                     onClick = { /* No functional logic required */ },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(77.dp)
+                        .height(56.dp)
                         .clip(RoundedCornerShape(23.dp)),
                     shape = RoundedCornerShape(23.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(android.graphics.Color.parseColor("#7395FF")))
+                    colors = ButtonDefaults.buttonColors(containerColor = VioletBlue)
                 ) {
                     Text(
                         text = "Request Reset Link",
-                        fontSize = 24.sp,
+                        fontSize = 18.sp,
                         color = Color.White,
                         fontFamily = poppinsFontFamily
                     )
                 }
 
-                Spacer(modifier = Modifier.height(32.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
                 // Clickable Text "Back to Sign in"
                 Text(
                     text = "Back to Sign in",
-                    color = Color(android.graphics.Color.parseColor("#5F71FE")),
+                    color = BlueViolet,
                     fontFamily = poppinsFontFamily,
                     fontWeight = FontWeight.Medium,
-                    fontSize = 25.96.sp,
-                    style = TextStyle(lineHeight = 18.78.sp),
+                    fontSize = 16.sp,
+                    style = TextStyle(lineHeight = 20.sp),
                     textAlign = TextAlign.Center,
                     modifier = Modifier
                         .clickable { /* Placeholder navigation */ }
