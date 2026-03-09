@@ -31,7 +31,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
@@ -39,7 +38,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import com.example.wallgodds.ui.theme.AppPadding
 import com.example.wallgodds.ui.theme.AppSize
-import com.example.wallgodds.ui.theme.GrapePurple
+import com.example.wallgodds.ui.theme.NavbarTextColor
 import com.example.wallgodds.ui.theme.NavbarPurple
 import com.example.wallgodds.ui.theme.guedFontFamily
 import dev.chrisbanes.haze.HazeState
@@ -81,7 +80,7 @@ fun CustomNavigationBar(
                             noiseFactor = 0.0f,
                             tints = listOf(
                                 HazeTint(
-                                    color = Color.White.copy(alpha = 0.38f)
+                                    color = Color.White.copy(alpha = 0.68f)
                                 )
                             )
                         )
@@ -169,7 +168,7 @@ fun CustomNavigationBarItem(
 
 
     val tint by animateColorAsState(
-        targetValue = if (isSelected) Color.White else Gray,
+        targetValue = if (isSelected) Color.White else NavbarTextColor,
         animationSpec = tween(durationMillis = 500)
     )
 

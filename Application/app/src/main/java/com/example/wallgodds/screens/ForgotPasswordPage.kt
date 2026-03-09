@@ -42,7 +42,7 @@ import com.example.wallgodds.ui.theme.VioletBlue
 import com.example.wallgodds.ui.theme.poppinsFontFamily
 
 @Composable
-fun ForgetPassword() {
+fun ForgotPasswordPage() {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -171,6 +171,6 @@ fun ForgetPassword() {
 
 @androidx.compose.ui.tooling.preview.Preview(showBackground = true, widthDp = 1080, heightDp = 2400)
 @Composable
-fun ForgetPasswordPreview() {
-    ForgetPassword()
+fun ForgotPasswordPagePreview() {
+    ForgotPasswordPage()
 }

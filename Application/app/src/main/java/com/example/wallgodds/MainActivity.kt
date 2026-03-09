@@ -24,9 +24,9 @@ import androidx.compose.runtime.remember
 import com.example.wallgodds.navigation.CustomNavigationBar
 import com.example.wallgodds.navigation.Routes
 import com.example.wallgodds.navigation.listOfNavItems
-import com.example.wallgodds.screens.FavoritesPageScreen
+import com.example.wallgodds.screens.FavoritesPage
 import com.example.wallgodds.screens.HomePage
-import com.example.wallgodds.screens.ProfilePageScreen
+import com.example.wallgodds.screens.ProfilePage
 import com.example.wallgodds.screens.UploadPage
 import com.example.wallgodds.ui.theme.WallGoddsTheme
 import dev.chrisbanes.haze.HazeState
@@ -50,25 +50,6 @@ class MainActivity : ComponentActivity() {
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentDestination = navBackStackEntry?.destination
                 val hazeState = remember { HazeState() }
-
-                NavHost(
-                    navController = navController,
-                    startDestination = Routes.home_page,
-                ) {
-                    composable(Routes.favorites_page) {
-                        FavoritesPageScreen(navController)
-                    }
-                    composable(Routes.home_page) {
-                        HomePage(navController)
-                    }
-                    composable(Routes.upload_page) {
-                        UploadPage(navController)
-                    }
-                    composable(Routes.profile_page) {
-                        ProfilePageScreen(navController)
-                    }
-                }
-
 
                 Scaffold(
                     floatingActionButton = {
@@ -107,7 +88,7 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier.padding(top = innerPadding.calculateTopPadding())
                         ) {
                             composable(Routes.favorites_page) {
-                                FavoritesPageScreen(navController)
+                                FavoritesPage(navController)
                             }
                             composable(Routes.home_page) {
                                 HomePage(navController)
@@ -116,7 +97,7 @@ class MainActivity : ComponentActivity() {
                                 UploadPage(navController)
                             }
                             composable(Routes.profile_page) {
-                                ProfilePageScreen(navController)
+                                ProfilePage(navController)
                             }
                         }
                     }
