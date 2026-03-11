@@ -43,7 +43,7 @@ import com.example.wallgodds.ui.theme.AppPadding
 import com.example.wallgodds.ui.theme.poppinsFontFamily
 
 @Composable
-fun FavoritesPageScreen(navController: NavController) {
+fun FavoritesPage(navController: NavController) {
    val favoriteWallpapers = List(30) { R.drawable.sample_wallpaper } // Static list for now
     var sortOption by remember { mutableStateOf("Newest") }
     var sortExpanded by remember { mutableStateOf(false) }
