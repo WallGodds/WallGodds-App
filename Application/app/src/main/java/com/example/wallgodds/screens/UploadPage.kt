@@ -33,6 +33,7 @@ import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.wallgodds.R
 import com.example.wallgodds.ui.theme.AppPadding
+import com.example.wallgodds.navigation.Routes
 import com.example.wallgodds.ui.theme.poppinsFontFamily
 import com.example.wallgodds.utils.dashedBorder
 
@@ -92,7 +93,7 @@ fun UploadPage(navController: NavController) {
         ) {
 
 
-            UploadBox { launcher.launch("image/*") }
+            UploadBox { navController.navigate(Routes.upload_image_page) }
 
             Spacer(modifier = Modifier.height(180.dp))
 
@@ -129,7 +130,7 @@ fun UploadPage(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(320.dp)
-                ) { launcher.launch("image/*") }
+                ) { navController.navigate(Routes.upload_image_page) }
             }
 
 

@@ -45,3 +45,8 @@ val MediumSlateBlue = Color(0xFF7A5EE5)
 val VioletBlue = Color(0xFF7395FF)
 val BlueViolet = Color(0xFF5F71FE)
 val PurpleBlue = Color(0xFF7056F5)
+
+// Upload Page
+val UploadButtonDisabled = Color(0xFFCBCBCB)
+val UploadButtonActive = Color(0xFF7056F5)
+val HintGray = Color(0xFF929292)

@@ -116,7 +116,8 @@ fun CustomNavigationBar(
                 items.forEach { item ->
                     CustomNavigationBarItem(
                         item = item,
-                        isSelected = currentDestination?.hierarchy?.any { it.route == item.route } == true,
+                        isSelected = currentDestination?.hierarchy?.any { it.route == item.route } == true || 
+                                     (item.route == Routes.upload_page && currentDestination?.route == Routes.upload_image_page),
                         onItemClick = { onItemClick(item) }
                     )
                 }
