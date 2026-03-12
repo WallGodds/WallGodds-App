@@ -26,7 +26,6 @@ import com.example.wallgodds.navigation.Routes
 import com.example.wallgodds.navigation.listOfNavItems
 import com.example.wallgodds.screens.FavoritesPage
 import com.example.wallgodds.screens.HomePage
-import com.example.wallgodds.screens.ProfilePageScreen
 import com.example.wallgodds.screens.UploadImagePage
 import com.example.wallgodds.screens.ProfilePage
 import com.example.wallgodds.screens.UploadPage
