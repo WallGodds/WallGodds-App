@@ -126,7 +126,7 @@ fun ProfilePage(navController: NavController) {
             backgroundColor = Color(0xFF6B7BFF),
             textColor = Color.White,
             iconTint = Color.White,
-            onClick = {  }
+            onClick = { navController.navigate("signup_page") }
         )
 
         Spacer(modifier = Modifier.height(12.dp))
