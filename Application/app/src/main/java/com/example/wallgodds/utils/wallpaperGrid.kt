@@ -22,7 +22,7 @@ fun LazyGridScope.wallpaperGrid(wallpapers: List<Any>, onClick: () -> Unit = {})
         Box(
             modifier = Modifier
                 .padding(start = startPadding, end = endPadding)
-                .height(320.dp)
+                .height(360.dp)
                 .clip(RoundedCornerShape(24.dp))
         ) {
             AsyncImage(
