@@ -100,8 +100,12 @@ fun HomePage(navController: NavController) {
                     }
                 }
 
-                wallpaperGrid(wallpapers = wallpapers)
+                wallpaperGrid(
+                    wallpapers = wallpapers,
+                    navController = navController
+                )
             }
+
         }
     }
 }

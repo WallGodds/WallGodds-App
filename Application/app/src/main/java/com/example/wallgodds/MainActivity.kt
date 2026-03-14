@@ -28,9 +28,12 @@ import com.example.wallgodds.screens.FavoritesPage
 import com.example.wallgodds.screens.HomePage
 import com.example.wallgodds.screens.ProfilePage
 import com.example.wallgodds.screens.UploadPage
+import com.example.wallgodds.screens.WallpaperPreviewPage
 import com.example.wallgodds.ui.theme.WallGoddsTheme
 import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.hazeSource
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
 
 
 class MainActivity : ComponentActivity() {
@@ -72,6 +75,8 @@ class MainActivity : ComponentActivity() {
                     },
                     floatingActionButtonPosition = FabPosition.Center,
                 ) { innerPadding ->
+
+
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
@@ -82,6 +87,7 @@ class MainActivity : ComponentActivity() {
                             contentDescription = "Background Image",
                             contentScale = ContentScale.Crop,
                             modifier = Modifier.matchParentSize())
+
                         NavHost(
                             navController = navController,
                             startDestination = Routes.home_page,
@@ -99,11 +105,27 @@ class MainActivity : ComponentActivity() {
                             composable(Routes.profile_page) {
                                 ProfilePage(navController)
                             }
+
+                            composable(
+                                route = "${Routes.wallpaper_preview}/{wallpaper}",
+                                arguments = listOf(navArgument("wallpaper") { type = NavType.IntType })
+                            ) { backStackEntry ->
+
+                                val wallpaper =
+                                    backStackEntry.arguments?.getInt("wallpaper") ?: R.drawable.wall1
+
+                                WallpaperPreviewPage(
+                                    navController = navController,
+                                    wallpaper = wallpaper
+                                )
+                            }
                         }
                     }
 
                 }
             }
+
         }
     }
 }
+
