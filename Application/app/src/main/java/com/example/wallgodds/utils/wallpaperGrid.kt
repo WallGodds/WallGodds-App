@@ -12,9 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import coil.compose.AsyncImage
 
-fun LazyGridScope.wallpaperGrid(wallpapers: List<Any>, onClick: () -> Unit = {}) {
+fun LazyGridScope.wallpaperGrid(wallpapers: List<Any>, onClick: () -> Unit = {},navController: NavController) {
+
     itemsIndexed(wallpapers) { index, wallpaper ->
         val startPadding = if (index % 2 == 0) 24.dp else 6.dp
         val endPadding = if (index % 2 == 0) 6.dp else 24.dp
@@ -31,7 +33,10 @@ fun LazyGridScope.wallpaperGrid(wallpapers: List<Any>, onClick: () -> Unit = {})
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .fillMaxSize()
-                    .clickable { onClick() }
+                    .clickable {
+                        navController.navigate("wallpaper_preview/$wallpaper")
+                    }
+
             )
         }
     }
