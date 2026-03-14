@@ -3,41 +3,52 @@ package com.example.wallgodds.screens
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.Icon
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import coil.compose.AsyncImage
 import com.example.wallgodds.R
 import com.example.wallgodds.ui.components.SearchBar
 import com.example.wallgodds.ui.theme.AppPadding
 import com.example.wallgodds.ui.theme.poppinsFontFamily
-import com.example.wallgodds.wallpapers.wallpapers
 
 @Composable
 fun FavoritesPageScreen(navController: NavController) {
-    // Taking images from the wallpapers list as requested
-    val favoriteWallpapers = wallpapers.take(10)
+   val favoriteWallpapers = List(30) { R.drawable.sample_wallpaper } // Static list for now
     var sortOption by remember { mutableStateOf("Newest") }
     var sortExpanded by remember { mutableStateOf(false) }
-    val isEmpty = false
+    val isEmpty = true
     var searchText by remember { mutableStateOf("") }
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -45,9 +56,10 @@ fun FavoritesPageScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.height(12.dp))
-
-        // Search and Filter Row
-        Row(modifier = Modifier.fillMaxWidth()) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
             SearchBar(
                 value = searchText,
                 onValueChange = { searchText = it },
@@ -86,55 +98,54 @@ fun FavoritesPageScreen(navController: NavController) {
                         )
                     }
                 }
-
-                DropdownMenu(
-                    expanded = sortExpanded,
-                    onDismissRequest = { sortExpanded = false },
-                    modifier = Modifier.background(Color.White.copy(alpha = 0.6f))
-                ) {
-                    DropdownMenuItem(
-                        text = { Text("Newest", fontFamily = poppinsFontFamily) },
-                        onClick = { sortOption = "Newest"; sortExpanded = false }
-                    )
-                    DropdownMenuItem(
-                        text = { Text("Oldest", fontFamily = poppinsFontFamily) },
-                        onClick = { sortOption = "Oldest"; sortExpanded = false }
-                    )
-                }
+                
+                    DropdownMenu(
+                        expanded = sortExpanded,
+                        onDismissRequest = { sortExpanded = false },
+                        modifier = Modifier.background(Color.White.copy(alpha = 0.6f))
+                    ) {
+                        DropdownMenuItem(
+                            text = {
+                                Text(
+                                    text = "Newest",
+                                    fontSize = 16.sp,
+                                    fontWeight = FontWeight.Normal,
+                                    color = Color(0xFF929292),
+                                    fontFamily = poppinsFontFamily
+                                )
+                            },
+                            onClick = {
+                                sortOption = "Newest"
+                                sortExpanded = false
+                            },
+                        )
+                        DropdownMenuItem(
+                            text = {
+                                Text(
+                                    text = "Oldest",
+                                    fontSize = 16.sp,
+                                    fontWeight = FontWeight.Normal,
+                                    color = Color(0xFF929292),
+                                    fontFamily = poppinsFontFamily
+                                )
+                            },
+                            onClick = {
+                                sortOption = "Oldest"
+                                sortExpanded = false
+                            }
+                        )
+                    }
             }
         }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
+        Spacer(modifier = Modifier.height(240.dp))
         if (isEmpty) {
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                EmptyState()
-            }
-        } else {
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
-                modifier = Modifier.weight(1f),
-                // Padding at bottom to ensure images aren't cut off by nav bar
-                contentPadding = PaddingValues(bottom = 80.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp),
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
-            ) {
-                items(favoriteWallpapers) { wallpaper ->
-                    AsyncImage(
-                        model = wallpaper,
-                        contentDescription = "Favourite Wallpaper",
-                        contentScale = ContentScale.Crop, // Vital for filling the 260dp height
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(360.dp) // Adjusted height to match Figma's elongated look
-                            .clip(RoundedCornerShape(24.dp)) // Increased radius to match template
-                            .background(Color.LightGray)
-                    )
-                }
-            }
+            EmptyState()
         }
     }
 }
+
+
+
 
 @Composable
 private fun EmptyState() {
@@ -144,18 +155,23 @@ private fun EmptyState() {
     ) {
         Image(
             painter = painterResource(id = R.drawable.favourite_page_guy),
-            contentDescription = null,
-            modifier = Modifier.size(170.dp, 160.dp)
+            contentDescription = "No favourites illustration",
+            modifier = Modifier
+                .size(170.dp, 160.dp)
         )
+
         Text(
             text = "No favourites yet.",
             fontSize = 20.sp,
+            fontWeight = FontWeight.Normal,
             fontFamily = poppinsFontFamily,
-            color = Color(0xFF808080)
+            color = Color(0xFF808080),
         )
+
         Text(
             text = "Start saving wallpapers you like.",
             fontSize = 16.sp,
+            fontWeight = FontWeight.Normal,
             fontFamily = poppinsFontFamily,
             color = Color(0xFF808080)
         )
