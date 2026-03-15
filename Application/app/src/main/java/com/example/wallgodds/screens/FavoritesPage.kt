@@ -15,6 +15,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
@@ -41,111 +44,130 @@ import com.example.wallgodds.R
 import com.example.wallgodds.ui.components.SearchBar
 import com.example.wallgodds.ui.theme.AppPadding
 import com.example.wallgodds.ui.theme.poppinsFontFamily
+import com.example.wallgodds.utils.wallpaperGrid
 
 @Composable
-fun FavoritesPageScreen(navController: NavController) {
-   val favoriteWallpapers = List(30) { R.drawable.sample_wallpaper } // Static list for now
+fun FavoritesPage(navController: NavController) {
+    val favoriteWallpapers = List(30) { R.drawable.sample_wallpaper } // Static list for now
     var sortOption by remember { mutableStateOf("Newest") }
     var sortExpanded by remember { mutableStateOf(false) }
-    val isEmpty = true
+    var isEmpty by remember { mutableStateOf(false) }
     var searchText by remember { mutableStateOf("") }
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(horizontal = AppPadding.MainContentPadding),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Spacer(modifier = Modifier.height(12.dp))
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
+
+
+    Column {
+        Box(
+            modifier = Modifier.fillMaxSize()
         ) {
-            SearchBar(
-                value = searchText,
-                onValueChange = { searchText = it },
-                modifier = Modifier.weight(1f)
-            )
-
-            Spacer(modifier = Modifier.width(12.dp))
-
-            Box {
-                OutlinedButton(
-                    onClick = { sortExpanded = true },
-                    modifier = Modifier
-                        .width(100.dp)
-                        .height(48.dp),
-                    shape = RoundedCornerShape(16.dp),
-                    contentPadding = PaddingValues(horizontal = 6.dp, vertical = 0.dp),
-                    colors = ButtonDefaults.outlinedButtonColors(
-                        containerColor = Color.White.copy(alpha = 0.6f)
-                    ),
-                    border = BorderStroke(1.dp, Color(0xFFE2E8F0))
-                ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(
-                            text = sortOption,
-                            color = Color(0xFF929292),
-                            fontSize = 15.sp,
-                            fontFamily = poppinsFontFamily,
-                            fontWeight = FontWeight.Medium
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = AppPadding.MainContentPadding),
+                contentPadding = PaddingValues(top = 12.dp, bottom = 24.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                item(span = { GridItemSpan(2) }) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    ) {
+                        SearchBar(
+                            value = searchText,
+                            onValueChange = { searchText = it },
+                            modifier = Modifier.weight(1f)
                         )
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Icon(
-                            imageVector = Icons.Default.KeyboardArrowDown,
-                            contentDescription = null,
-                            tint = Color(0xFF929292),
-                            modifier = Modifier.size(20.dp)
-                        )
+
+                        Spacer(modifier = Modifier.width(12.dp))
+
+                        Box {
+                            OutlinedButton(
+                                onClick = { sortExpanded = true },
+                                modifier = Modifier
+                                    .width(100.dp)
+                                    .height(48.dp),
+                                shape = RoundedCornerShape(16.dp),
+                                contentPadding = PaddingValues(horizontal = 6.dp, vertical = 0.dp),
+                                colors = ButtonDefaults.outlinedButtonColors(
+                                    containerColor = Color.White.copy(alpha = 0.6f)
+                                ),
+                                border = BorderStroke(1.dp, Color(0xFFE2E8F0))
+                            ) {
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    Text(
+                                        text = sortOption,
+                                        color = Color(0xFF929292),
+                                        fontSize = 15.sp,
+                                        fontFamily = poppinsFontFamily,
+                                        fontWeight = FontWeight.Medium
+                                    )
+                                    Spacer(modifier = Modifier.width(4.dp))
+                                    Icon(
+                                        imageVector = Icons.Default.KeyboardArrowDown,
+                                        contentDescription = null,
+                                        tint = Color(0xFF929292),
+                                        modifier = Modifier.size(20.dp)
+                                    )
+                                }
+                            }
+
+                            DropdownMenu(
+                                expanded = sortExpanded,
+                                onDismissRequest = { sortExpanded = false },
+                                modifier = Modifier.background(Color.White.copy(alpha = 0.6f))
+                            ) {
+                                DropdownMenuItem(
+                                    text = {
+                                        Text(
+                                            text = "Newest",
+                                            fontSize = 16.sp,
+                                            fontWeight = FontWeight.Normal,
+                                            color = Color(0xFF929292),
+                                            fontFamily = poppinsFontFamily
+                                        )
+                                    },
+                                    onClick = {
+                                        sortOption = "Newest"
+                                        sortExpanded = false
+                                    },
+                                )
+                                DropdownMenuItem(
+                                    text = {
+                                        Text(
+                                            text = "Oldest",
+                                            fontSize = 16.sp,
+                                            fontWeight = FontWeight.Normal,
+                                            color = Color(0xFF929292),
+                                            fontFamily = poppinsFontFamily
+                                        )
+                                    },
+                                    onClick = {
+                                        sortOption = "Oldest"
+                                        sortExpanded = false
+                                    }
+                                )
+                            }
+                        }
                     }
                 }
-                
-                    DropdownMenu(
-                        expanded = sortExpanded,
-                        onDismissRequest = { sortExpanded = false },
-                        modifier = Modifier.background(Color.White.copy(alpha = 0.6f))
-                    ) {
-                        DropdownMenuItem(
-                            text = {
-                                Text(
-                                    text = "Newest",
-                                    fontSize = 16.sp,
-                                    fontWeight = FontWeight.Normal,
-                                    color = Color(0xFF929292),
-                                    fontFamily = poppinsFontFamily
-                                )
-                            },
-                            onClick = {
-                                sortOption = "Newest"
-                                sortExpanded = false
-                            },
-                        )
-                        DropdownMenuItem(
-                            text = {
-                                Text(
-                                    text = "Oldest",
-                                    fontSize = 16.sp,
-                                    fontWeight = FontWeight.Normal,
-                                    color = Color(0xFF929292),
-                                    fontFamily = poppinsFontFamily
-                                )
-                            },
-                            onClick = {
-                                sortOption = "Oldest"
-                                sortExpanded = false
-                            }
-                        )
+                if (isEmpty) {
+                    item {
+                        Spacer(modifier = Modifier.height(228.dp))
                     }
+                    item(span = { GridItemSpan(2) }) {
+                        EmptyState()
+                    }
+                } else {
+                    wallpaperGrid(
+                        wallpapers = favoriteWallpapers,
+                        horizontalPadding = 0.dp,
+                        navController = navController
+                    )
+                }
             }
-        }
-        Spacer(modifier = Modifier.height(240.dp))
-        if (isEmpty) {
-            EmptyState()
         }
     }
 }
-
-
-
 
 @Composable
 private fun EmptyState() {
