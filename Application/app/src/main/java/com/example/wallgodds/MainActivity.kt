@@ -43,11 +43,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge(
             statusBarStyle = SystemBarStyle.light(
-            android.graphics.Color.TRANSPARENT,
-            android.graphics.Color.TRANSPARENT),
+                android.graphics.Color.TRANSPARENT,
+                android.graphics.Color.TRANSPARENT
+            ),
             navigationBarStyle = SystemBarStyle.light(
                 android.graphics.Color.TRANSPARENT,
-                android.graphics.Color.TRANSPARENT)
+                android.graphics.Color.TRANSPARENT
+            )
         )
         setContent {
             WallGoddsTheme {
@@ -88,7 +90,8 @@ class MainActivity : ComponentActivity() {
                             painter = painterResource(id = R.drawable.background),
                             contentDescription = "Background Image",
                             contentScale = ContentScale.Crop,
-                            modifier = Modifier.matchParentSize())
+                            modifier = Modifier.matchParentSize()
+                        )
 
                         NavHost(
                             navController = navController,
@@ -115,23 +118,26 @@ class MainActivity : ComponentActivity() {
                             }
                             composable(
                                 route = "${Routes.wallpaper_preview}/{wallpaper}",
-                                arguments = listOf(navArgument("wallpaper") { type = NavType.IntType })
+                                arguments = listOf(navArgument("wallpaper") {
+                                    type = NavType.IntType
+                                })
                             ) { backStackEntry ->
 
                                 val wallpaper =
-                                    backStackEntry.arguments?.getInt("wallpaper") ?: R.drawable.wall1
+                                    backStackEntry.arguments?.getInt("wallpaper")
+                                        ?: R.drawable.wall1
 
                                 WallpaperPreviewPage(
                                     navController = navController,
                                     wallpaper = wallpaper
                                 )
+                            }
                         }
+
                     }
-
                 }
-            }
 
+            }
         }
     }
 }
-

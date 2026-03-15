@@ -74,7 +74,6 @@ fun HomePage(navController: NavController) {
                 item(span = { GridItemSpan(2) }) {
                     TopSection()
                 }
-
                 item(span = { GridItemSpan(2) }) {
                     Box(
                         modifier = Modifier
